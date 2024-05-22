@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+{% block content %}
+    <div>
+        <a href="{% url 'create_product' %}">
+            <button type="button" class="btn btn-warning">Criar novo produto</button>
+        </a>
+    <nav class="navbar navbar-light bg-light">
+  <form action="{% url 'search_product' %}" class="form-inline">
+    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+    </div>
+    <div>
+     <div>
+        <h1> Numero de Produtos Diferentes: {{ products_count }} </h1>
+        <h1> Valor em Produtos: R$ {{ product_priceStock }} </h1>
+        <h1> Quantidade de produtos em estoque: {{ product_stock_numbers }} </h1>
+    </div>
+    <ul>
+        {% if products %}
+        <h1>
+            NOME: {{ product.name }}
+        </h1>
+            <h1>
+                PREÇO: {{ product.price }}
+            </h1>
+            <h1>
+                Descrição: {{ product.description }}
+            </h1>
+            <h1>
+                Em Estoque: {{ product.inStock }}
+            </h1>
+            <h1>
+                Data de Compra: {{ product.stockDate }}
+            </h1>
+            <h1>
+                Foto do produto:
+                <img src="{{ product.photo.url }}">
+            </h1>
+            <h1>
+                Loja: {{ product.user}}
+            </h1>
+        {% endif %}
+    </ul>
+    {% endblock %}
+</div>
+</body>
+</html>
