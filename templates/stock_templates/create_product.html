@@ -7,7 +7,7 @@
   </head>
   <body>
     <main>
-{% block content %}
+
             <form action="{% url 'create_product' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
@@ -24,7 +24,7 @@
             </div>
         </form>
     </main>
-{% endblock %}
+
     <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
         <div class="container text-center">
           <small>Developed with ❤️ by Murilo Dorigo </small>

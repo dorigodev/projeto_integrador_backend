@@ -1,31 +1,192 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <title>Título da página</title>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <main>
-{% block content %}
-        <form action="{% url 'login' %}" method="POST">
-            {% csrf_token %}
-          <div class="mb-3">
-              {% for field in form.visible_fields %}
-            <label for="exampleInputEmail1" class="form-label">{{ field.label }}</label>
-            {{ field }}
-          </div>
-            {% endfor %}
-            <div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
-    </main>
-{% endblock %}
-    <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
-        <div class="container text-center">
-          <small>Developed with ❤️ by   </small>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Nova Geração</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    
+    <style media="screen">
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #324436;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .background {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+        }
+        .background .shape {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            border-radius: 50%;
+        }
+        .shape:first-child {
+            background: linear-gradient(
+                #719E4B,
+                #A6C344
+            );
+            left: 35%;
+            top: 10%;
+        }
+        .shape:last-child {
+            background: linear-gradient(
+                to right,
+                #F0883A,
+                #F9AC23
+            );
+            right: 35%;
+            bottom: 10% ;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.13);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            padding: 50px 35px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 90%;
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+        }
+        form * {
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .logo-container::before {
+            content: "";
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background-color: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        form img {
+            width: 120px;
+            position: relative;
+        }
+        form h3 {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 42px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        label {
+            display: block;
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: left;
+        }
+        input {
+            display: block;
+            height: 50px;
+            width: calc(100% - 20px);
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+            margin-left: 10px;
+        }
+        ::placeholder {
+            color: #e5e5e5;
+        }
+        button {
+            margin-top: 50px;
+            width: 100%;
+            background-color: #ffffff;
+            color: #080710;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .background .shape {
+                height: 100px;
+                width: 100px;
+            }
+            .shape:first-child {
+                left: -10%;
+                top: 10%;
+            }
+            .shape:last-child {
+                right: -10%;
+                bottom: 10%;
+            }
+            form {
+                padding: 40px 50px;
+            }
+            form h3 {
+                font-size: 24px;
+                margin-top: 20px;
+            }
+            input {
+                height: 40px;
+                font-size: 12px;
+            }
+            button {
+                padding: 10px 0;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form>
+        <div class="logo-container">
+            <img src="/img/logonvg.png" alt="Logo">
         </div>
-      </footer>
-  </body>
+        <h3>Login</h3>
+
+        <label for="username">Usuário</label>
+        <input type="text" placeholder="Email" id="username">
+
+        <label for="password">Senha</label>
+        <input type="password" placeholder="Senha" id="password">
+
+        <button>Entrar</button>
+    </form>
+</body>
 </html>
