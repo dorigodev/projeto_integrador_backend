@@ -1,72 +1,293 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <title>Título da página</title>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <main>
-{% block content %}
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Sistema de estoque</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Produtos Naturais</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    
+    <style media="screen">
+        body {
+            font-family: "Poppins", sans-serif;
+            color: #444444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: url('/img/fundomain.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(200, 183, 142, 0.391); /* Fundo branco com opacidade */
+            z-index: 0;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #324436; /* Verde */
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            z-index: 2;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .section-products {
+            padding: 80px 0;
+            width: 40%; /* Ajuste a largura conforme necessário */
+            position: relative;
+            z-index: 1; /* Para garantir que os produtos apareçam acima do fundo */
+            margin-top: 60px; /* Adicionado para evitar sobreposição com a navbar */
+        }
+
+        .section-products .header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-products .header h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #444444;
+        }
+
+        .section-products .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .section-products .single-product {
+            width: calc(25% - 10px); /* Quatro produtos por linha */
+            margin: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .section-products .single-product .part-1 {
+            position: relative;
+            padding-top: 100%;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .section-products .single-product .part-1 img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .section-products .single-product .part-1 ul {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            opacity: 0;
+            transition: bottom 0.5s, opacity 0.5s;
+        }
+
+        .section-products .single-product:hover .part-1 ul {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        .section-products .single-product .part-1 ul li a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background-color: #ffffff;
+            color: #444444;
+            text-align: center;
+            box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
+            transition: color 0.2s;
+        }
+
+        .section-products .single-product .part-1 ul li a:hover {
+            color: #324436;
+        }
+
+        .section-products .single-product .part-2 .product-title {
+            font-size: 1rem;
+            margin: 0;
+            margin-top: -10px;
+        }
+        .section-products .single-product .part-2 .product-description {
+            display: inline-block;
+            margin: 0;
+            margin-top: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/templates/stock_templates/update_product.html">Atualizar Produto</a>
+        <a href="/templates/stock_templates/create_product.html">Adicionar Produto</a>
+        <a href="/templates/users_templates/login.html">Sair</a>
+
     </div>
-  </div>
-</nav>
-    <div>
-        <a href="{% url 'create_product' %}">
-            <button type="button" class="btn btn-warning">Criar novo produto</button>
-        </a>
-    <nav class="navbar navbar-light bg-light">
-  <form action="{% url 'search_product' %}" class="form-inline">
-    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav>
-    </div>
-    <div>
-     <div>
-        <h1> Numero de Produtos Diferentes: {{ products_count }} </h1>
-        <h1> Valor em Produtos: R$ {{ product_priceStock }} </h1>
-        <h1> Quantidade de produtos em estoque: {{ product_stock_numbers }} </h1>
-    </div>
-    <ul>
-        {% if products %}
-        {% for product in products %}
-        <li>
-                <h1>
-                    ID: {{ product.id }} | Nome: {{ product.name }} | Em Estoque: {{ product.inStock }} | Preço:  R${{product.price}}
-                    <a href="{% url 'product' product.id %}"><button type="button" class="btn btn-success">Visualizar</button></a>
-                    <a href="{% url 'update_product' product.id %}"><button type="button" class="btn btn-primary">Editar</button></a>
-                    <a href="{% url 'delete_product' product.id %}"><button type="button" class="btn btn-danger">Excluir</button>
-</a>
-                </h1>
-        </li>
-        {% endfor %}
-        {% endif %}
-    </ul>
-    </div>
-    <div class="d-flex justify-content-center top-10">
-        <a href="{% url 'logout' %}">
-            <button type="button" class="btn btn-outline-danger">Logout</button>
-        </a>
-    </div>
-    </main>
-{% endblock %}
+
+    <section class="section-products">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="header">
+                        <h2>Tabela de Produtos</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Single Product -->
+                <div id="product-1" class="single-product">
+                    <div class="part-1">
+                        <img src="/img/Omega.png" alt="Product Omega">
+                        <ul>
+                            <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="part-2">
+                        <h3 class="product-title">Ômega 3</h3>
+                        <p class="product-description">120 Cápsulas / 500mg</p>
+                        <p class="product-description">Preço: R$250,00 </p>
+                        <p class="product-description">Em estoque: 30 </p>
+                        <p class="product-description">Data de Compra: 23/05 </p>
+                    </div>
+                </div>
+                <!-- Single Product -->
+                <div id="product-2" class="single-product">
+                    <div class="part-1">
+                        <img src="/img/capsularara.png" alt="Product Capsula Rara">
+                        <ul>
+                            <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="part-2">
+                        <h3 class="product-title">Cápsula Rara</h3>
+                        <p class="product-description">60 Cápsulas / 500mg</p>
+                        <p class="product-description">Preço: R$230,00 </p>
+                        <p class="product-description">Em estoque: 51 </p>
+                        <p class="product-description">Data de Compra: 23/05 </p>
+                    </div>
+                </div>
+                <!-- Single Product -->
+                <div id="product-3" class="single-product">
+                    <div class="part-1">
+                        <img src="/img/colageno.png" alt="Product Colageno">
+                        <ul>
+                            <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="part-2">
+                        <h3 class="product-title">Mega Cólageno</h3>
+                        <p class="product-description">60 Cápsulas / 500mg</p>
+                        <p class="product-description">Preço: R$200,00 </p>
+                        <p class="product-description">Em estoque: 52 </p>
+                        <p class="product-description">Data de Compra: 03/07 </p>
+                    </div>
+                </div>
+                <!-- Single Product -->
+                <div id="product-4" class="single-product">
+                    <div class="part-1">
+                        <img src="/img/reumatrix.png" alt="Product Reumatrix ">
+                        <ul>
+                            <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="part-2">
+                        <h3 class="product-title">Reumatrix</h3>
+                        <p class="product-description">60 Cápsulas / 500mg</p>
+                        <p class="product-description">Preço: R$190,00</p>
+                        <p class="product-description">Em estoque: 47</p>
+                        <p class="product-description">Data de Compra: 16/07 </p>
+                    </div>
+                </div>
+                <!-- Single Product -->
+                <div id="product-5" class="single-product">
+                    <div class="part-1">
+                        <img src="/img/macaPeruana.png" alt="Product Maca Peruana">
+                        <ul>
+                            <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="part-2">
+                        <h3 class="product-title">Maca Peruana</h3>
+                        <p class="product-description">120 Cápsulas / 500mg</p>
+                        <p class="product-description">Preço: R$150,00</p>
+                        <p class="product-description">Em estoque: 33</p>
+                        <p class="product-description">Data de Compra: 16/07 </p>
+                    </div>
+                </div>
+                <!-- Single Product -->
+                <div id="product-6" class="single-product">
+                    <div class="part-1">
+                        <img src="/img/magnesio.png" alt="Product Magnesio">
+                        <ul>
+                            <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="part-2">
+                        <h3 class="product-title">Magnésio Quelato</h3>
+                        <p class="product-description">60 Cápsulas / 500mg</p>
+                        <p class="product-description">Preço: R$210,00</p>
+                        <p class="product-description">Em estoque: 45</p>
+                        <p class="product-description">Data de Compra: 03/07 </p>
+                    </div>
+                </div>
+                <!-- Single Product -->
+                <div id="product-7" class="single-product">
+                    <div class="part-1">
+                        <img src="/img/hialuronico.png" alt="Product Hialuronico">
+                        <ul>
+                            <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="part-2">
+                        <h3 class="product-title">Hialurônico</h3>
+                            <p class="product-description">60 Cápsulas / 500mg</p>
+                            <p class="product-description">Preço: R$170,00</p>
+                            <p class="product-description">Em estoque: 41</p>
+                            <p class="product-description">Data de Compra: 21/10 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
