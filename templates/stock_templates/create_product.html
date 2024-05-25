@@ -165,7 +165,7 @@
     <div class="nav-right">
       <button id="tabela-produto" onclick="location.href='/templates/stock_templates/index.html'">Tabela de
         Produto</button>
-      <button id="adicionar-produto" onclick="location.href='/templates/stock_templates/update_product'">Atualizar
+      <button id="adicionar-produto" onclick="location.href='/templates/stock_templates/update_product.html'">Atualizar
         Produto</button>
       <button id="sair" onclick="location.href='/templates/users_templates/login.html'">Sair</button>
     </div>
@@ -173,8 +173,8 @@
 
   <main>
     <div class="title">
-      <h2>Produtos</h2>
-      <span>Adicionar Produtos</span>
+      <h2>Adicionar Produtos</h2>
+      <span>Produtos</span>
     </div>
 
     <div class="card">
@@ -209,7 +209,7 @@
       </div>
 
       <div class="button-group">
-        <button onclick="produto.salvar()">Salvar</button>
+        <button onclick="produto.adicionar()">Adicionar</button>
         <button onclick="produto.cancelar()">Cancelar</button>
       </div>
     </div>
