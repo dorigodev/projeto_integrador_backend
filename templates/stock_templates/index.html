@@ -9,15 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registro - Produtos Naturais</title>
-    
+
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    
+
         <style media="screen">
             body {
                 font-family: "Poppins", sans-serif;
@@ -27,7 +28,7 @@
                 background-size: cover;
                 position: relative;
             }
-    
+
             body::before {
                 content: '';
                 position: absolute;
@@ -38,7 +39,7 @@
                 background: rgba(200, 183, 142, 0.391);
                 z-index: 0;
             }
-    
+
             nav {
                 background-color: #324436;
                 padding: 2px;
@@ -52,24 +53,24 @@
                 z-index: 1000;
                 height: 66px;
             }
-    
+
             .nav-left {
                 display: flex;
                 align-items: center;
             }
-    
+
             .nav-left h1 {
                 margin-left: 25px;
                 font-size: 24px;
                 font-weight: 700;
             }
-    
+
             .logo {
                 width: 50px;
                 height: 50px;
                 margin-left: 40px;
             }
-    
+
             .nav-right {
                 display: flex;
                 align-items: center;
@@ -77,7 +78,7 @@
                 margin-right: 60px;
                 z-index: 1001;
             }
-    
+
             .nav-right button {
                 background-color: #324436;
                 color: #fff;
@@ -90,20 +91,20 @@
                 font-weight: normal;
                 font-size: large;
             }
-    
+
             .nav-right button:hover,
             .nav-right button:focus {
                 background-color: #789a71;
                 color: black;
             }
-    
+
             .nav-right form {
                 display: flex;
                 align-items: center;
                 gap: 10px;
                 margin-left: 20px;
             }
-    
+
             .nav-right input[type="text"] {
                 padding: 10px;
                 border: none;
@@ -112,7 +113,7 @@
                 width: 250px;
                 background-color: #bbd0b7f7;
             }
-    
+
             .nav-right button[type="submit"] {
                 background-color: #324436;
                 color: #fff;
@@ -122,13 +123,13 @@
                 padding: 10px;
                 transition: all ease 0.3s;
             }
-    
+
             .nav-right button[type="submit"]:hover,
             .nav-right button[type="submit"]:focus {
                 background-color: #789a71;
                 color: black;
             }
-    
+
             main {
                 padding: 20px 30px;
                 position: relative;
@@ -138,14 +139,14 @@
                 flex-direction: column;
                 gap: 20px;
             }
-    
+
             .section-stats {
                 display: flex;
                 gap: 20px;
                 justify-content: space-between;
                 margin-bottom: 20px;
             }
-    
+
             .stat-card {
                 background-color: #fff;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -157,37 +158,37 @@
                 overflow: hidden;
                 text-align: center;
             }
-    
+
             .stat-card h3 {
                 font-size: 1.2rem;
                 font-weight: 600;
                 margin-bottom: 10px;
                 color: #0f2f02;
             }
-    
+
             .stat-card p {
                 font-size: 1rem;
                 font-weight: 500;
                 margin: 0;
             }
-    
+
             .section-products {
                 width: 100%;
                 position: relative;
                 z-index: 1;
             }
-    
+
             .section-products .header {
                 margin-bottom: 10px;
                 text-align: center;
             }
-    
+
             .section-products .header h2 {
                 font-size: 2.2rem;
                 font-weight: 400;
                 color: #0f2f02;
             }
-    
+
             .section-products .row {
                 display: flex;
                 flex-wrap: wrap;
@@ -196,26 +197,28 @@
                 margin-left: 15%;
                 margin-right: 15%;
             }
-    
+
             .section-products .single-product {
-            width: calc(25% - 20px); /* Diminuiu o tamanho dos cards */
-            margin: 20px;
-            box-sizing: border-box;
-            text-align: center;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 20px 18px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            position: relative;
-            overflow: hidden;
-        }
+                width: calc(25% - 20px);
+                /* Diminuiu o tamanho dos cards */
+                margin: 20px;
+                box-sizing: border-box;
+                text-align: center;
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 20px 18px rgba(0, 0, 0, 0.1);
+                padding: 15px;
+                position: relative;
+                overflow: hidden;
+            }
+
             .section-products .single-product .part-1 {
                 position: relative;
                 padding-top: 100%;
                 margin-bottom: 5px;
                 overflow: hidden;
             }
-    
+
             .section-products .single-product .part-1 img {
                 position: absolute;
                 top: 0;
@@ -225,7 +228,7 @@
                 object-fit: cover;
                 border-radius: 10px;
             }
-    
+
             .section-products .single-product .part-1 ul {
                 position: absolute;
                 top: 10px;
@@ -236,17 +239,17 @@
                 opacity: 0;
                 transition: top 0.5s, opacity 0.5s;
             }
-    
+
             .section-products .single-product:hover .part-1 ul {
                 top: 20px;
                 opacity: 1;
             }
-    
+
             .section-products .single-product .part-1 ul li {
                 display: inline-block;
                 margin-right: 5px;
             }
-    
+
             .section-products .single-product .part-1 ul li a {
                 display: inline-block;
                 width: 50px;
@@ -258,68 +261,69 @@
                 box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
                 transition: color 0.2s;
             }
-    
+
             .section-products .single-product .part-1 ul li a:hover {
                 color: #12942e;
             }
-    
+
             .section-products .single-product .part-2 {
                 padding: 10px 0;
             }
-    
+
             .section-products .single-product .part-2 .product-title {
                 font-size: 1.2rem;
                 margin: 10px;
                 margin-top: 5px;
                 font-weight: 600;
             }
-    
+
             .section-products .single-product .part-2 .product-description {
                 display: block;
                 margin-top: 20px;
                 font-size: 0.9rem;
                 text-align: left;
             }
-    
+
             .section-products .single-product .part-2 ul {
                 padding-left: 20px;
                 list-style-type: disc;
             }
         </style>
     </head>
-    
-    <body>
-        <nav>
-            <div class="nav-left">
-                <img src="/img/fotonvg.png" alt="Logo" class="logo">
-                <h1>Nova Geração</h1>
+
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="/img/fotonvg.png" alt="Logo" class="logo">
+            <h1>Nova Geração</h1>
+        </div>
+        <div class="nav-right">
+            <button id="tabela-produto"
+                onclick="location.href='/templates/stock_templates/create_product.html'">Adicionar Produto</button>
+            <button id="sair" onclick="location.href='/templates/users_templates/login.html'">Sair</button>
+            <form action="/search" method="GET">
+                <input type="text" name="q" placeholder="Pesquisar produtos...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </nav>
+
+    <main>
+        <div class="section-stats">
+            <!-- Card 1: Quantidade de variedade dos produtos -->
+            <div class="stat-card">
+                <h3>Quantidade de Variedade dos Produtos</h3>
+                <p>7 Produtos</p>
             </div>
-            <div class="nav-right">
-                <button id="tabela-produto" onclick="location.href='/templates/stock_templates/create_product.html'">Adicionar Produto</button>
-                <button id="sair" onclick="location.href='/templates/users_templates/login.html'">Sair</button>
-                <form action="/search" method="GET">
-                    <input type="text" name="q" placeholder="Pesquisar produtos...">
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
+            <div class="stat-card">
+                <h3>Valor Total dos Produtos</h3>
+                <p>R$ 59.930,00</p>
             </div>
-        </nav>
-    
-        <main>
-            <div class="section-stats">
-                <!-- Card 1: Quantidade de variedade dos produtos -->
-                <div class="stat-card">
-                    <h3>Quantidade de Variedade dos Produtos</h3>
-                    <p>7 Produtos</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Valor Total dos Produtos</h3>
-                    <p>R$ 59.930,00</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Quantidade Total de Estoque</h3>
-                    <p>299 produtos </p>
-                </div>
+            <div class="stat-card">
+                <h3>Quantidade Total de Estoque</h3>
+                <p>299 produtos </p>
             </div>
+        </div>
         <section class="section-products">
             <div class="container">
                 <div class="row justify-content-center text-center">
@@ -336,7 +340,8 @@
                             <img src="/img/Omega.png" alt="Product Omega">
                             <ul>
                                 <li><a href=""><i class="fas fa-trash"></i></a></li>
-                                <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-pen"></i></a></li>
+                                <li><a href="/templates/stock_templates/update_product.html"><i
+                                            class="fas fa-pen"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
@@ -355,7 +360,8 @@
                             <img src="/img/capsulaRara.png" alt="Product Rara">
                             <ul>
                                 <li><a href=""><i class="fas fa-trash"></i></a></li>
-                                <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-pen"></i></a></li>
+                                <li><a href="/templates/stock_templates/update_product.html"><i
+                                            class="fas fa-pen"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
@@ -374,7 +380,8 @@
                             <img src="/img/colageno.png" alt="Product Colageno">
                             <ul>
                                 <li><a href=""><i class="fas fa-trash"></i></a></li>
-                                <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-pen"></i></a></li>
+                                <li><a href="/templates/stock_templates/update_product.html"><i
+                                            class="fas fa-pen"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
@@ -393,7 +400,8 @@
                             <img src="/img/reumatrix.png" alt="Product Reumatrix ">
                             <ul>
                                 <li><a href=""><i class="fas fa-trash"></i></a></li>
-                                <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-pen"></i></a></li>
+                                <li><a href="/templates/stock_templates/update_product.html"><i
+                                            class="fas fa-pen"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
@@ -412,7 +420,8 @@
                             <img src="/img/macaPeruana.png" alt="Product Maca Peruana">
                             <ul>
                                 <li><a href=""><i class="fas fa-trash"></i></a></li>
-                                <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-pen"></i></a></li>
+                                <li><a href="/templates/stock_templates/update_product.html"><i
+                                            class="fas fa-pen"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
@@ -431,7 +440,8 @@
                             <img src="/img/magnesio.png" alt="Product Magnesio">
                             <ul>
                                 <li><a href=""><i class="fas fa-trash"></i></a></li>
-                                <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-pen"></i></a></li>
+                                <li><a href="/templates/stock_templates/update_product.html"><i
+                                            class="fas fa-pen"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">
@@ -450,7 +460,8 @@
                             <img src="/img/hialuronico.png" alt="Product Hialuronico">
                             <ul>
                                 <li><a href=""><i class="fas fa-trash"></i></a></li>
-                                <li><a href="/templates/stock_templates/update_product.html"><i class="fas fa-pen"></i></a></li>
+                                <li><a href="/templates/stock_templates/update_product.html"><i
+                                            class="fas fa-pen"></i></a></li>
                             </ul>
                         </div>
                         <div class="part-2">

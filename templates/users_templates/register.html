@@ -47,8 +47,9 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            max-width: 900px;
-            width: 100%;
+            max-width: 700px;
+            width: 60%;
+            height: 60%;
             box-sizing: border-box;
             display: flex;
         }
@@ -66,25 +67,25 @@
         .logo-container {
             position: relative;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         .logo-container::before {
             content: "";
             position: absolute;
-            width: 140px;
-            height: 140px;
+            width: 110px;
+            height: 110px;
             background-color: white;
             border-radius: 50%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: -1;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         form img.logo {
-            width: 120px;
+            width: 100px;
             position: relative;
-            margin-top: 30px;
+            margin-top: 20px;
         }
         .image-container {
             flex: 1;
@@ -98,35 +99,37 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 10px 0 0 10px; /* Ajuste para borda arredondada na imagem */
         }
         .form-fields {
             flex: 1;
             padding: 20px;
         }
         .form-fields h3 {
-            font-size: 32px;
-            font-weight: 500;
-            line-height: 42px;
+            font-size: 25px;
+            font-weight: 400;
+            line-height: 40px;
             text-align: center;
             margin-top: 20px;
+            
         }
         .form-fields label {
             display: block;
-            margin-top: 20px;
-            font-size: 16px;
-            font-weight: 500;
+            margin-top: 10px;
+            font-size: 13px;
+            font-weight: 400;
             text-align: left;
         }
         .form-fields input {
             display: block;
-            height: 50px;
+            height: 35px;
             width: calc(100% - 20px);
             background-color: rgba(255, 255, 255, 0.07);
             border-radius: 3px;
-            padding: 0 10px;
-            margin-top: 8px;
-            font-size: 14px;
-            font-weight: 300;
+            padding: 0 5px;
+            margin-top: 5px;
+            font-size: 13px;
+            font-weight: 200;
             margin-left: 10px;
         }
         .form-fields ::placeholder {
@@ -134,11 +137,12 @@
         }
         .form-fields button {
             margin-top: 30px;
+            height: 40px;
             width: 100%;
             background-color: #ffffff;
             color: #0e3827;
-            padding: 15px 0;
-            font-size: 18px;
+            padding: 7px 0;
+            font-size: 17px;
             font-weight: 600;
             border-radius: 5px;
             cursor: pointer;
@@ -174,7 +178,7 @@
     <form>
         <div class="content">
             <div class="image-container">
-                <img src="/img/fundo.jpeg" alt="capsulas de vitaminas">
+                <img src="/img/fundo.jpeg" alt="Imagem de fundo">
             </div>
             <div class="form-fields">
                 <div class="logo-container">
