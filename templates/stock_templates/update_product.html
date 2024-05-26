@@ -139,7 +139,11 @@
     table th {
       background-color: rgb(203, 213, 192);
     }
-
+    table tbody {
+      background-color: rgb(255, 255, 255);
+      padding: 1px 5px;
+      text-align: left;
+    }
     table th,
     td {
       padding: 1px 5px;
@@ -165,7 +169,7 @@
     <div class="nav-right">
       <button id="tabela-produto" onclick="location.href='/templates/stock_templates/index.html'">Tabela de
         Produto</button>
-      <button id="adicionar-produto" onclick="location.href='/templates/stock_templates/create_product'">Adicionar
+      <button id="adicionar-produto" onclick="location.href='/templates/stock_templates/create_product.html'">Adicionar
         Produto</button>
       <button id="sair" onclick="location.href='/templates/users_templates/login.html'">Sair</button>
     </div>
@@ -220,13 +224,21 @@
           <tr>
             <th class="center">ID</th>
             <th class="center">Produto</th>
+            <th class="center">Descrição</th>
             <th class="center">Valor</th>
             <th class="center">Quantidade</th>
             <th class="center">Data de compra</th>
           </tr>
         </thead>
         <tbody id="tbody">
-          <!-- Conteúdo dinâmico -->
+          <tr>
+            <td class="center">variável</td><!-- é pra aparecer somente as informações do produto que for ser atualizado -->
+            <td class="center">variável</td>
+            <td class="center">variável</td>
+            <td class="center">variável</td>
+            <td class="center">variável</td>
+            <td class="center">variável</td>
+          </tr>
         </tbody>
       </table>
     </div>
