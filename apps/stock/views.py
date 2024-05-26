@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from apps.stock.models import Product
 from apps.stock.forms import ProductForm
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
@@ -26,7 +27,7 @@ def index(request):
         prices = product.get_price()
         new_price = instock * prices
         product_pricestock.append(new_price)
-    product_pricestock = sum(product_pricestock)
+    product_pricestock = round(sum(product_pricestock), 2)
     return render(request, 'stock_templates/index.html', {'products': products,
                                                           'products_count': products_count,
                                                           'product_stock_numbers': product_instock,
@@ -34,8 +35,10 @@ def index(request):
 
 
 # Create
+@csrf_exempt
 def create_product(request):
     form = ProductForm()
+    products = Product.objects.filter(available=True).filter(user=request.user)
     if not request.user.is_authenticated:
         messages.error(request, 'User not logged')
         return redirect("login")
@@ -45,7 +48,7 @@ def create_product(request):
             form.save()
             messages.success(request, 'Producto cadastrado com sucesso')
             return redirect("index")
-    return render(request, 'stock_templates/create_product.html', {'form': form})
+    return render(request, 'stock_templates/create_product.html', {'form': form, 'products': products})
 
 
 # Read
@@ -59,6 +62,7 @@ def read_product(request, product_id):
 
 
 # Update
+@csrf_exempt
 def update_product(request, product_id):
     product_object = Product.objects.get(id=product_id)
     form = ProductForm(instance=product_object)
@@ -74,6 +78,7 @@ def update_product(request, product_id):
 
 
 # Delete
+@csrf_exempt
 def delete_product(request, product_id):
     product_object = Product.objects.get(id=product_id)
     product_object.delete()

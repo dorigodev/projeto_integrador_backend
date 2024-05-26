@@ -20,7 +20,7 @@ class ProductForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'price': forms.NumberInput(attrs={'class': 'form-control'}),
-            'description': forms.Textarea(attrs={'class': 'form-control'}),
+            'description': forms.TextInput(attrs={'class': 'form-control'}),
             'inStock': forms.NumberInput(attrs={'class': 'form-control'}),
             'stockDate': forms.DateTimeInput(format='%d/%m/%Y',
                                              attrs={'class': 'form-control',

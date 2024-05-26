@@ -5,9 +5,10 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from apps.users.forms import LoginForm
 from apps.users.forms import RegisterForm
-
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
+@csrf_exempt
 def login(request):
     form = LoginForm()
     if request.method == 'POST':
@@ -21,11 +22,11 @@ def login(request):
                 messages.success(request, 'Loja logada com sucesso!')
                 return redirect("index")
             else:
-                messages.error(request, 'Erro ao logar com sucesso!')
+                messages.error(request, 'Erro ao logar, verifique suas credencias!')
                 return redirect("login")
     return render(request, 'users_templates/login.html', {'form': form})
 
-
+@csrf_exempt
 def register(request):
     form = RegisterForm()
     if request.method == 'POST':

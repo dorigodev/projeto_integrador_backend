@@ -55,12 +55,12 @@ class RegisterForm(forms.Form):
         )
 
     senha_registro_confirm = forms.CharField(
-        label='Senha 2',
+        label='Confirmação de senha',
         required=True,
         max_length=70,
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': "Digite sua senha"
+            'placeholder': "Digite sua senha novamente"
             })
         )
 

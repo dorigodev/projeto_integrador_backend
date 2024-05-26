@@ -1,7 +1,7 @@
-from django.conf.urls.static import static
 from django.urls import path
 from apps.stock.views import index, read_product, search_product, create_product, update_product, delete_product
 from projetoIntegradorBackend import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', index, name='index'),
@@ -10,5 +10,8 @@ urlpatterns = [
     path('create_product', create_product, name='create_product'),
     path('update_product/<int:product_id>', update_product, name='update_product'),
     path('delete_product/<int:product_id>', delete_product, name='delete_product'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

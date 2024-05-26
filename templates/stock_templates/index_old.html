@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Título da página</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <main>
+{% block content %}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Sistema de estoque</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+    <div>
+        <a href="{% url 'create_product' %}">
+            <button type="button" class="btn btn-warning">Criar novo produto</button>
+        </a>
+    <nav class="navbar navbar-light bg-light">
+  <form action="{% url 'search_product' %}" class="form-inline">
+    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+    </div>
+    <div>
+     <div>
+        <h1> Numero de Produtos Diferentes: {{ products_count }} </h1>
+        <h1> Valor em Produtos: R$ {{ product_priceStock }} </h1>
+        <h1> Quantidade de produtos em estoque: {{ product_stock_numbers }} </h1>
+    </div>
+    <ul>
+        {% if products %}
+        {% for product in products %}
+        <li>
+                <h1>
+                    ID: {{ product.id }} | Nome: {{ product.name }} | Em Estoque: {{ product.inStock }} | Preço:  R${{product.price}}
+                    <a href="{% url 'update_product' product.id %}"><button type="button" class="btn btn-primary">Editar</button></a>
+                    <a href="{% url 'delete_product' product.id %}"><button type="button" class="btn btn-danger">Excluir</button>
+</a>
+                </h1>
+        </li>
+        {% endfor %}
+        {% endif %}
+    </ul>
+    </div>
+    <div class="d-flex justify-content-center top-10">
+        <a href="{% url 'logout' %}">
+            <button type="button" class="btn btn-outline-danger">Logout</button>
+        </a>
+    </div>
+    </main>
+{% endblock %}

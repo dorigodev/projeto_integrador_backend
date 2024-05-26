@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class Product(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
     price = models.FloatField(max_length=50, null=False, blank=False)
-    description = models.TextField(null=False, blank=False)
+    description = models.CharField(max_length=50, null=False, blank=False)
     inStock = models.IntegerField(null=False, blank=False)
     available = models.BooleanField(default=True)
     stockDate = models.DateField(models.DateTimeField(default=datetime.now, null=True, blank=False))
@@ -22,3 +22,11 @@ class Product(models.Model):
 
     def get_price(self):
         return self.price
+
+    def get_photo_url(self):
+        if self.photo:
+            return getattr(self.photo, 'url', None)
+        return None
+
+    def get_date_formated(self):
+        return self.stockDate.strftime('%d/%m/%Y')
